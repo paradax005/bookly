@@ -9,6 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get: ^4.6.5
+  flutter_screenutil: ^5.9.0
+  font_awesome_flutter: ^10.5.0
+  google_fonts: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +21,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: GT Sectra Fine
+      fonts:
+        - asset: assets/fonts/GT Sectra Fine Regular.ttf
