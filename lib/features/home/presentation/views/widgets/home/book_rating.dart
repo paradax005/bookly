@@ -15,19 +15,26 @@ class BookRating extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 6.w),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
+          Icon(
             FontAwesomeIcons.solidStar,
             color: kStarColor,
-            size: 20,
+            size: 14.r,
           ),
           const WidthSpacer(width: 7),
           Text(
             averageRating,
-            style: Styles.textStyle16,
+            style: Styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
           ),
           const WidthSpacer(width: 5),
-          Text("($ratingCount)", style: Styles.textStyle14.copyWith(color: kGrey)),
+          Text(
+            "($ratingCount)",
+            style: Styles.textStyle14.copyWith(
+              color: kLight.withOpacity(.5),
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ],
       ),
     );

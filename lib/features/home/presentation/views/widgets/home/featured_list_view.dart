@@ -1,8 +1,9 @@
+import 'package:bookly/config/routes/names.dart';
 import 'package:bookly/core/widgets/width_spacer.dart';
+import 'package:bookly/features/home/presentation/views/widgets/home/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'list_view_item.dart';
+import 'package:go_router/go_router.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
   const FeaturedListViewItem({super.key});
@@ -16,7 +17,12 @@ class FeaturedListViewItem extends StatelessWidget {
         itemCount: 10,
         separatorBuilder: (context, index) => const WidthSpacer(width: 20),
         itemBuilder: (context, index) {
-          return const CustomListViewItem();
+          return InkWell(
+            onTap: () {
+              GoRouter.of(context).push(RoutesName.BOOK_DETAIL);
+            },
+            child: const CustomBookItem(),
+          );
         },
       ),
     );

@@ -7,5 +7,9 @@ ThemeData theme() {
     useMaterial3: true,
     scaffoldBackgroundColor: kPrimaryColor,
     textTheme: GoogleFonts.montserratTextTheme(),
+    iconTheme: const IconThemeData(
+      color: kLight,
+      size: 30,
+    ),
   );
 }

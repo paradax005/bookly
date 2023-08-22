@@ -1,11 +1,10 @@
+import 'package:bookly/config/routes/names.dart';
 import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/colors.dart';
-import 'package:bookly/core/utils/constant.dart';
 import 'package:bookly/core/widgets/app_style.dart';
 import 'package:bookly/core/widgets/height_spacer.dart';
-import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -47,11 +46,7 @@ class _SplashBodyState extends State<SplashBody> with SingleTickerProviderStateM
 
   goToHome() {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.to(
-        () => const HomeView(),
-        transition: Transition.fadeIn,
-        duration: kTransitionDuration,
-      );
+      GoRouter.of(context).pushReplacement(RoutesName.HOME);
     });
   }
 

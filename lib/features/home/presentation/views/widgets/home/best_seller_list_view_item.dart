@@ -3,7 +3,7 @@ import 'package:bookly/core/utils/constant.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/core/widgets/height_spacer.dart';
 import 'package:bookly/core/widgets/width_spacer.dart';
-import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/home/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
