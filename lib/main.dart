@@ -1,10 +1,17 @@
 import 'package:bookly/config/theme/theme.dart';
+import 'package:bookly/core/utils/constant.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import 'config/routes/routes.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(BookEntityAdapter());
+  await Hive.openBox<BookEntity>(kFeaturedBox);
+  await Hive.openBox<BookEntity>(kNewestBox);
   runApp(const BooklyApp());
 }
 
