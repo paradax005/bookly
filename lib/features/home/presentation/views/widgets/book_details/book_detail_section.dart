@@ -3,7 +3,6 @@ import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/core/widgets/height_spacer.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_details/book_actions.dart';
 import 'package:bookly/features/home/presentation/views/widgets/home/book_rating.dart';
-import 'package:bookly/features/home/presentation/views/widgets/home/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +17,8 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         SizedBox(
           width: 140.w,
-          child: const CustomBookItem(),
+          child: const SizedBox(),
+          //const CustomBookItem(book : BookEntity()),
         ),
         const HeightSpacer(size: 20),
         Text(

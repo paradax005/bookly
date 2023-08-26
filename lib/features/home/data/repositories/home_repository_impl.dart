@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bookly/core/errors/failure.dart';
 import 'package:bookly/core/utils/typedef.dart';
 import 'package:bookly/features/home/data/data_source/local/home_local_data_source.dart';
@@ -14,13 +16,15 @@ class HomeRepositoryImpl extends HomeRepository {
   final HomeLocalDataSource localDataSource;
 
   @override
-  ResultFuture<List<BookEntity>> fetchFeaturedBooks() async {
+  ResultFuture<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0}) async {
     try {
-      List<BookEntity> bookList;
+      List<BookEntity> bookList = [];
+
       bookList = localDataSource.fetchFeaturedBooks();
       if (bookList.isNotEmpty) {
         return right(bookList);
       }
+
       bookList = await homeRemoteDataSource.fetchFeaturedBooks();
 
       return right(bookList);
@@ -33,15 +37,18 @@ class HomeRepositoryImpl extends HomeRepository {
   }
 
   @override
-  ResultFuture<List<BookEntity>> fetchNewestBooks() async {
+  ResultFuture<List<BookEntity>> fetchNewestBooks({int pageNumber = 0}) async {
     try {
       List<BookEntity> bookList;
 
       bookList = localDataSource.fetchNewestBooks();
       if (bookList.isNotEmpty) {
+        log("fetch book from local data source");
         return right(bookList);
       }
       bookList = await homeRemoteDataSource.fetchNewestBooks();
+
+      log(bookList[0].title);
 
       return right(bookList);
     } catch (e) {

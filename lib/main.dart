@@ -21,7 +21,9 @@ void main() async {
 
   setupServiceLocator();
   Bloc.observer = SimpleBlocObserver();
+
   await Hive.openBox<BookEntity>(kFeaturedBox);
+
   await Hive.openBox<BookEntity>(kNewestBox);
   runApp(const BooklyApp());
 }
@@ -43,14 +45,14 @@ class BooklyApp extends StatelessWidget {
                 FeaturedBooksUseCase(
                   getIt.get<HomeRepositoryImpl>(),
                 ),
-              ),
+              )..fetchFeaturedBooks(),
             ),
             BlocProvider(
               create: (context) => NewestBooksCubit(
                 NewestBooksUseCase(
                   getIt.get<HomeRepositoryImpl>(),
                 ),
-              ),
+              )..fetchNewestBooks(),
             ),
           ],
           child: MaterialApp.router(
